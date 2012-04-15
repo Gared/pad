@@ -735,8 +735,8 @@ function _handleCometMessage(connection, msg) {
   else if (msg.type == "CLIENT_MESSAGE") {
     _accessConnectionPad(connection, "CLIENT_MESSAGE", function(pad) {
       var payload = msg.payload;
-      if (payload.authId &&
-          payload.authId != connection.data.userInfo.userId) {
+      if (payload.type == "suggestUserName" || (payload.authId &&
+          payload.authId != connection.data.userInfo.userId)) {
         // authId, if present, must actually be the sender's userId;
         // here it wasn't
       }
