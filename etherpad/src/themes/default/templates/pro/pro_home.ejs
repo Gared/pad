@@ -21,12 +21,12 @@ limitations under the License. */ %><% helpers.setHtmlTitle(orgName + " - " + ap
 
 
   <div id="homeright">
-    <a href="/ep/pad/newpad" class="bigbuttonpro">Create a new pad
+    <a href="/ep/pad/newpad" class="bigbuttonpro"><%= helpers.translate("PRO_HOME_CREATE_NEW_PAD") %>
     </a>
 
     <% if (livePads.length > 0) { %>
       <div id="live-pads">
-        <h3>Live Pads (currently being edited)</h3>
+        <h3><%= helpers.translate("PRO_HOME_LIVE_PADS") %></h3>
         <div id="listwrap">
           <%= renderLivePads() %>
         </div>
@@ -35,11 +35,11 @@ limitations under the License. */ %><% helpers.setHtmlTitle(orgName + " - " + ap
 
     <% if (recentPads.length > 0) { %>
       <div id="recent-pads">
-        <h3>Your Recent Pads:</h3>
+        <h3><%= helpers.translate("PRO_HOME_RECENT_PADS") %>:</h3>
         <div id="listwrap">
           <%= renderRecentPads() %>
         </div>
-        <a id="viewall" href="/ep/padlist/">View all pads...</a>
+        <a id="viewall" href="/ep/padlist/"><%= helpers.translate("PRO_HOME_ALL_PADS") %>...</a>
         <div style="clear:both"><!-- --></div>
       </div>
     <% } %>

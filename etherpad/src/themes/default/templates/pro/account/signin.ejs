@@ -13,6 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License. */ %><% helpers.includeJQuery() %>
 <% helpers.includeJs("pro/signin-client.js") %>
 <% helpers.includeCss("pro/account.css") %>
+<% helpers.includeCss("pro/padlist.css"); %>
 <% helpers.setHtmlTitle(appjet.config.customBrandingName +": Sign In") %>
 
 
@@ -80,6 +81,18 @@ limitations under the License. */ %><% helpers.includeJQuery() %>
       href="/ep/account/forgot-password">Recover lost
       password</a>
   </div>
+
+  <% if (recentPads.length > 0) { %>
+  <br />
+  <div id="recent-pads">
+    <h3>Public Pads:</h3>
+    <div id="listwrap">
+      <%= renderRecentPads() %>
+    </div>
+    <div style="clear:both"><!-- --></div>
+  </div>
+  <% } %>
+
 
   </div>
 </div>

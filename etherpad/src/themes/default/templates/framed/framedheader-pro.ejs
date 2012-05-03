@@ -47,15 +47,15 @@ limitations under the License. */ %><% helpers.addBodyClass("pro-withtopbar"); %
 
 <% function renderProTopNav() {
     var links = [
-      ['/', 'Home', 'home'],
-      ['/ep/padlist/', 'Pads', 'padlist'],
-      ['/ep/account/', 'My Account', 'account'],
-      ['/ep/pro-help/', 'Help', 'help']
+      ['/', helpers.translate("PRO_MAIN_TITLE_HOME"), 'home'],
+      ['/ep/padlist/', helpers.translate("PRO_MAIN_TITLE_PADS"), 'padlist'],
+      ['/ep/account/', helpers.translate("PRO_MAIN_TITLE_MYACCOUNT"), 'account'],
+      ['/ep/pro-help/', helpers.translate("PRO_MAIN_TITLE_HELP"), 'help']
     ];
     if (account && account.isAdmin) {
-      links.push(['/ep/admin/', 'Admin', 'admin']);
+      links.push(['/ep/admin/', helpers.translate("PRO_MAIN_TITLE_ADMIN"), 'admin']);
     }
-    links.push(['/ep/account/sign-out', 'Sign out', 'signout']);
+    links.push(['/ep/account/sign-out', helpers.translate("PRO_MAIN_TITLE_SIGNOUT"), 'signout']);
     var ul = UL();
     links.forEach(function(l) {
       var c = l[2];

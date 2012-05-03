@@ -58,7 +58,7 @@ limitations under the License. */ %>
 	    <% 
 	// } 
 	} %>
-	<div class="fullscreen" onclick="$('body').toggleClass('maximized');">Full screen</div>
+	<div class="fullscreen" onclick="$('body').toggleClass('maximized');"><%= helpers.translate("PAD_FULL_SCREEN") %></div>
 
 	  <a href="javascript:void(0);" onclick="$('body').toggleClass('maximized');" class="topbarmaximize" title="Toggle maximization"></a>
 	</div>
@@ -68,7 +68,7 @@ limitations under the License. */ %>
       <div id="alertbar">
 	<div id="servermsg">
 	  <h3>Server Notice<span id="servermsgdate"><!-- --></span>:</h3>
-	  <a id="hidetopmsg" href="javascript: void pad.hideServerMessage()">hide</a>
+	  <a id="hidetopmsg" href="javascript: void pad.hideServerMessage()"><%= helpers.translate("LAYER_HIDE") %></a>
 	  <p id="servermsgtext"><!-- --></p>
 	</div>
       </div>

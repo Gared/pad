@@ -26,6 +26,10 @@ import("etherpad.debug.dmesg");
 import("etherpad.pro.pro_utils");
 
 jimport("java.lang.System.out.println");
+jimport("java.util.ResourceBundle");
+jimport("java.util.Locale");
+
+var locale;
 
 //----------------------------------------------------------------
 // array that supports contains() in O(1)
@@ -303,4 +307,28 @@ function updateToUrl(setParams, deleteParams, setPath) {
   }
 
   return path + paramStr;
+}
+
+function translate(key) {
+  if (!locale) {
+    if (request.headers['Accept-Language']) {
+      var langStr = request.headers['Accept-Language'].split(',')[0];
+      var langArr = langStr.split("-");
+      var country = "";
+      var lang = null;
+      if (langArr.length == 2) {
+        lang = langArr[0];
+        country = langArr[1];
+      } else {
+        lang = langArr[0];
+      }
+      //response.write("Lang: "+lang+", Country: "+country+"<br>");
+      locale = new Locale(lang, country);
+    } else {
+      locale = new Locale("en");
+    }
+  }
+  var res = ResourceBundle.getBundle("etherpad", locale);
+  //response.write("Key: "+key);
+  return res.getString(key);
 }

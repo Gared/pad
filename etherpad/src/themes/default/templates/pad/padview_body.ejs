@@ -87,17 +87,17 @@ limitations under the License. */ %><%
   <div id="padsidebarfull">
     <div id="rightbar">
       <a id="viewlatest" href="/ep/pad/view/<%= padId %>/latest">
-      <% if (revisionId != "latest") { %>View latest content<% } else { %>Viewing latest content<% } %></a><br>
-      <a class="tlink" href="/ep/pad/view/<%= padId %>/<%= revisionId %>" thref="/ep/pad/view/<%= padId %>/rev.%revision%">Link to this version</a>
-      <% if (readOnly === false) { %><br><a class="tlink" href="/ep/pad/view/<%= roPadId %>/<%= revisionId %>" thref="/ep/pad/view/<%= roPadId %>/rev.%revision%">Link to read-only page</a><br><a href="/<%= padId %>">Edit this pad</a><% } %>
-      <h2>Download as</h2>
+      <% if (revisionId != "latest") { %><%= helpers.translate("LINK_VIEW_LATEST_CONTENT") %><% } else { %><%= helpers.translate("LINK_VIEWING_LATEST_CONTENT") %><% } %></a><br>
+      <a class="tlink" href="/ep/pad/view/<%= padId %>/<%= revisionId %>" thref="/ep/pad/view/<%= padId %>/rev.%revision%"><%= helpers.translate("LINK_VERSION") %></a>
+      <% if (readOnly === false) { %><br><a class="tlink" href="/ep/pad/view/<%= roPadId %>/<%= revisionId %>" thref="/ep/pad/view/<%= roPadId %>/rev.%revision%"><%= helpers.translate("LINK_READ_ONLY") %></a><br><a href="/<%= padId %>"><%= helpers.translate("LINK_EDIT") %></a><% } %>
+      <h2><%= helpers.translate("TITLE_DOWNLOAD") %></h2>
       <img src="/static/img/may09/html.gif"><a class="tlink" href="/ep/pad/export/<%= padId %>/<%= revisionId %>?format=html" thref="/ep/pad/export/<%= padId %>/rev.%revision%?format=html">HTML</a><br>
       <img src="/static/img/may09/txt.gif" ><a class="tlink" href="/ep/pad/export/<%= padId %>/<%= revisionId %>?format=html" thref="/ep/pad/export/<%= padId %>/rev.%revision%?format=txt" >Plain text</a><br>
       <img src="/static/img/may09/doc.gif" ><a class="tlink" href="/ep/pad/export/<%= padId %>/<%= revisionId %>?format=html" thref="/ep/pad/export/<%= padId %>/rev.%revision%?format=doc" >Microsoft Word</a><br>
       <img src="/static/img/may09/pdf.gif" ><a class="tlink" href="/ep/pad/export/<%= padId %>/<%= revisionId %>?format=html" thref="/ep/pad/export/<%= padId %>/rev.%revision%?format=pdf" >PDF</a>
     </div>
     <div id="legend">
-      <h2>Authors</h2>
+      <h2><%= helpers.translate("TITLE_AUTHORS") %></h2>
       <table id="authorstable" border="0" cellspacing="0" cellpadding="0">
       </table>
     </div>
@@ -107,7 +107,7 @@ limitations under the License. */ %><%
 
 <% template.define('topArea', function() { var ejs_data=''; %>
   <div id="timeslider-wrapper">
-  <div id="error" style="display: none">It looks like you're having connection troubles. <a href="/ep/pad/view/<%= padId %>/latest">Reconnect now</a>.</div>
+  <div id="error" style="display: none">It looks like you're having connection troubles. <a href="/ep/pad/view/<%= padId %>/latest"><%= helpers.translate("ERROR_RECONNECT_NOW") %></a>.</div>
   <div id="timeslider" unselectable="on" style="display: none">
     <div id="timeslider-left"></div>
     <div id="timeslider-right"></div>

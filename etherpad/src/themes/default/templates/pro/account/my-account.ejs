@@ -19,44 +19,44 @@ limitations under the License. */ %><% helpers.includeCss("pro/account.css") %>
   <%= errorDiv() %>
 
 <% if (!changePass) { %>
-  <h2>My Info</h2>
+  <h2><%= helpers.translate("PRO_ACCOUNT_TITLE") %></h2>
 
   <form method="post" action="/ep/account/update-info">
   <table>
     <tr>
-      <th>Full Name:</th>
+      <th><%= helpers.translate("PRO_ACCOUNT_FULL_NAME") %>:</th>
       <td class="ti"><%= INPUT({type: 'text', name: 'fullName',
       value: account.fullName}) %></td>
     </tr>
     <tr>
-      <th>Email:</th>
+      <th><%= helpers.translate("PRO_ACCOUNT_EMAIL") %>:</th>
       <td class="ti"><%= INPUT({type: 'text', name: 'email', value:
       account.email}) %></td>
     </tr>
     <tr>
       <td colspan="2" style="text-align: right;">
-        <input type="submit" value="Update Info" />
+        <input type="submit" value="<%= helpers.translate("PRO_ACCOUNT_UPDATE_INFO") %>" />
       </td>
     </tr>
   </table>
   </form>
 <% } %>
 
-<h2>Password</h2>
+<h2><%= helpers.translate("PRO_ACCOUNT_PASSWORD_TITLE") %></h2>
 
 <form method="post" action="/ep/account/update-password">
 <table>
   <tr>
-    <th>New Password:</th>
+    <th><%= helpers.translate("PRO_ACCOUNT_NEW_PASSWORD") %>:</th>
     <td class="ti"><%= INPUT({type: 'password', name: 'password', value: ''}) %></td>
   </tr>
   <tr>
-    <th>Confirm Password:</th>
+    <th><%= helpers.translate("PRO_ACCOUNT_CONFIRM_PASSWORD") %>:</th>
     <td class="ti"><%= INPUT({type: 'password', name: 'passwordConfirm', value: ''}) %></td>
   </tr>
   <tr>
     <td colspan="2" style="text-align: right;">
-      <input type="submit" id="passwordSubmit" value="Update Password" />
+      <input type="submit" id="passwordSubmit" value="<%= helpers.translate("PRO_ACCOUNT_UPDATE_PASSWORD") %>" />
     </td>
   </tr>
 </table>

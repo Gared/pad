@@ -13,17 +13,17 @@ See the License for the specific language governing permissions and
 limitations under the License. */ %>
 <div style="font-size: 4em; font-family: sans-serif; text-align: center;">
 
-  <p>EtherPad is not yet fully-functional on the iPhone.</p>
+  <p><%= helpers.translate("IPHONE_TITLE") %>.</p>
 
   <a style="display: block; padding: 1em; border: 3px solid #333; background: #ddd; margin: 1em; -webkit-border-radius: 1em;"
      href="/ep/pad/view/<%= padId %>/latest">
-    View Read-Only
+    <%= helpers.translate("IPHONE_READ_ONLY") %>
   </a>
 
   <a style="display: block; padding: 1em; border: 3px solid #333; background: #ddd; margin: 1em; -webkit-border-radius: 1em;"
      href="/<%= padId %>?skipIphoneCheck=1">
-    Proceed to Editor<br/>
-    <span style="font-size: .6em;">(may not be fully-functional)</span>
+    <%= helpers.translate("IPHONE_EDITOR") %><br/>
+    <span style="font-size: .6em;">(<%= helpers.translate("IPHONE_EDITOR_TEXT") %>)</span>
   </a>
 
 </div>

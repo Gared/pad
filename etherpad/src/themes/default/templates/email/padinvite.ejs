@@ -13,6 +13,8 @@ See the License for the specific language governing permissions and
 limitations under the License. */ %><%= body %>
 
 --
+<%= helpers.translate("EMAIL_PAD_INVITE_1") %> <%= request.host %> <%= helpers.translate("EMAIL_PAD_INVITE_2") %> <%= appjet.config.customEmailAddress %>
+
 Sent by <%= request.host %> at the request of an EtherPad user.
 Do not reply to this email.
-Report abuse to: support@etherpad.com
+Report abuse to: <%= appjet.config.customEmailAddress %>

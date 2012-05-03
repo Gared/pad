@@ -27,11 +27,11 @@ limitations under the License. */ %><% helpers.includeCss("lib/jquery.contextmen
 
   <% if (padList.length > 0) { %>
     <%= renderPadList() %>
-    <p style="font-size: .8em;"><i><%= padList.length %> pad<% if (padList.length > 1) { %>s<% } %></i> <% if (isAdmin) { %>(<a href="/ep/padlist/all-pads.zip">Download all pads as a ZIP archive</a>.) <% } %>
+    <p style="font-size: .8em;"><i><%= padList.length %> pad<% if (padList.length > 1) { %>s<% } %></i> <% if (isAdmin) { %>(<a href="/ep/padlist/all-pads.zip"><%= helpers.translate("PRO_PADLIST_DOWNLOAD_ALL") %></a>.) <% } %>
 </p>
 
   <% } else { %>
-     <p>No pads in this list.</p>
+     <p><%= helpers.translate("PRO_PADLIST_NO_PADS") %>.</p>
   <% } %>
 
 </div>

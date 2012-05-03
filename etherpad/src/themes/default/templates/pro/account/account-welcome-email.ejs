@@ -11,6 +11,26 @@ distributed under the License is distributed on an "AS-IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. */ %>
+<%= helpers.translate("EMAIL_DEAR") %> <%= account.fullName %>,
+
+<% if (adminAccount) { %>
+<%= adminAccount.fullName %> <%= helpers.translate("EMAIL_WELCOME_1") %> <%= appjet.config.customBrandingName %> <%= helpers.translate("EMAIL_WELCOME_2") %> <%=
+request.host %> (<%= siteName %>).
+<% } else { %>
+<%= helpers.translate("EMAIL_WELCOME_3") %> <%= appjet.config.customBrandingName %> <%= helpers.translate("EMAIL_WELCOME_4") %>.
+<% } %>
+<%= helpers.translate("EMAIL_WELCOME_5") %>
+
+<%= signinLink %>
+
+<%= helpers.translate("EMAIL_WELCOME_6") %> <%= appjet.config.customEmailAddress %>.
+
+--
+<%= helpers.translate("EMAIL_WELCOME_7") %> <%= toEmail %> <%= helpers.translate("EMAIL_WELCOME_8") %> <%= appjet.config.customBrandingName %> <%= helpers.translate("EMAIL_WELCOME_9") %>.
+
+
+--- English version ---
+
 Dear <%= account.fullName %>,
 
 <% if (adminAccount) { %>
