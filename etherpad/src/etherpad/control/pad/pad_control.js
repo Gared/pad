@@ -338,6 +338,11 @@ function render_pad(localPadId) {
       (sessions.isAnEtherpadAdmin() ? collab_server.getSpecialKey('invisible') :
        null);
 
+    var lang = "en";
+    if (padutils.getPrefsCookieData() && padutils.getPrefsCookieData().language) {
+      lang = padutils.getPrefsCookieData().language;
+    }
+
     helpers.addClientVars({
       padId: localPadId,
       globalPadId: globalPadId,
@@ -361,7 +366,8 @@ function render_pad(localPadId) {
       userName: displayName,
       userColor: assignColorId(pad, userId),
       specialKey: specialKey,
-      specialKeyTranslation: collab_server.translateSpecialKey(specialKey)
+      specialKeyTranslation: collab_server.translateSpecialKey(specialKey),
+      language: lang
     });
   });
 
@@ -763,3 +769,10 @@ function render_chathistory_get() {
   response.write(fastJSON.stringify(result));
 }
 
+//----------------------------------------------------------------
+// language
+//----------------------------------------------------------------
+
+function render_language_post() {
+    response.write("language");
+}

@@ -77,6 +77,9 @@ var pad = {
 
     $("#widthprefcheck").click(pad.toggleWidthPref);
     $("#sidebarcheck").click(pad.toggleSidebar);
+    $("#changelanguage").change(function() { padcookie.setPref('language', this.form.language.options[this.form.language.selectedIndex].value); window.location.reload(); });
+
+    $("#changelanguage").val(clientVars.language);
 
     pad.myUserInfo = {
       userId: clientVars.userId,
@@ -84,6 +87,11 @@ var pad = {
       ip: pad.getClientIp(),
       colorId: clientVars.userColor,
       userAgent: pad.getDisplayUserAgent()
+    };
+    pad.changeLanguage = function(newLanguage) {
+      if (newLanguage) {
+        pad.notifyChangeLanguage(newLanguage);
+      }
     };
     if (clientVars.specialKey) {
       pad.myUserInfo.specialKey = clientVars.specialKey;
@@ -151,6 +159,13 @@ var pad = {
       password: newPass,
       changedBy: pad.myUserInfo.name || "unnamed"
     });
+  },
+  notifyChangeLanguage: function(newLanguage) {
+    pad.collabClient.sendClientMessage({
+      type: 'language',
+      locale: newLanguage
+    });
+    //window.location.reload();
   },
   changePadOption: function(key, value) {
     var options = {};

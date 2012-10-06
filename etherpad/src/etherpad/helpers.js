@@ -20,8 +20,13 @@ import("faststatic");
 import("comet");
 import("funhtml.META");
 
+import("etherpad.sessions.getSession");
+import("etherpad.sessions");
+
 import("etherpad.globals.*");
 import("etherpad.debug.dmesg");
+
+import("etherpad.pad.padutils");
 
 import("etherpad.pro.pro_utils");
 
@@ -310,25 +315,11 @@ function updateToUrl(setParams, deleteParams, setPath) {
 }
 
 function translate(key) {
-  if (!locale) {
-    if (request.headers['Accept-Language']) {
-      var langStr = request.headers['Accept-Language'].split(',')[0];
-      var langArr = langStr.split("-");
-      var country = "";
-      var lang = null;
-      if (langArr.length == 2) {
-        lang = langArr[0];
-        country = langArr[1];
-      } else {
-        lang = langArr[0];
-      }
-      //response.write("Lang: "+lang+", Country: "+country+"<br>");
-      locale = new Locale(lang, country);
-    } else {
-      locale = new Locale("en");
-    }
+  var lang = "en";
+  if (padutils.getPrefsCookieData() && padutils.getPrefsCookieData().language) {
+    lang = padutils.getPrefsCookieData().language;
   }
+  var locale = new Locale(lang);
   var res = ResourceBundle.getBundle("etherpad", locale);
-  //response.write("Key: "+key);
   return res.getString(key);
 }

@@ -376,6 +376,16 @@ limitations under the License. */ %>
 
 <% template.define('editBarItemsRight', function() { var ejs_data=''; %>
   <%: template.callHookStr('editBarItemsRightPad', {}, '', '', ''); %>
+  <td>
+    <form>
+      <select name="language" id="changelanguage">
+        <option value="en">Englisch</option>
+        <!-- List here other languages: 
+          <option value="de">Deutsch</option>
+          -->
+      </select>
+    </form>
+  </td>
   <td><img src="/static/img/jun09/pad/editbar_groupleft.gif" width="2" height="24"></td>
   <td class="editbarbutton editbargroupsfirst clearAuthorshipColors"><a href="javascript:void (window.pad&&pad.editbarClick('clearauthorship'));" title="<%= helpers.translate("EDITOR_TITLE_CLEAR_AUTHORSHIP") %>"><img src="/static/img/jun09/pad/editbar_clearauthorship.gif"></a></td>
   <td class="editbarbutton undo"><a href="javascript:void (window.pad&&pad.editbarClick('undo'));" title="<%= helpers.translate("EDITOR_TITLE_UNDO") %> (ctrl-Z)"><img src="/static/img/jun09/pad/editbar_undo.gif"></a></td>
